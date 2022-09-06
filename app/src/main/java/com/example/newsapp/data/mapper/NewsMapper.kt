@@ -1,6 +1,6 @@
 package com.example.newsapp.data.mapper
 
-import com.example.newsapplication.data.model.ResultDTO
+import com.example.newsapp.data.model.ResultDTO
 import com.google.gson.Gson
 import okhttp3.ResponseBody
 

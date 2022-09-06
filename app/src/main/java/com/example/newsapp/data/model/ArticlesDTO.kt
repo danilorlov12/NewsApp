@@ -1,6 +1,5 @@
 package com.example.newsapp.data.model
 
-import com.example.newsapplication.data.model.SourceDTO
 import com.google.gson.annotations.SerializedName
 
 data class ArticlesDTO(
