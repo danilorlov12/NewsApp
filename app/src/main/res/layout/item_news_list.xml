@@ -5,27 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        style="@style/BodyTitle14BlackLeft"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="12dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Tesla delivered a record-breaking number of vehicles in the first quarter of 2022, despite supply chain issues and China's zero-COVID policy" />
+        tools:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/tvDescription"
+        android:id="@+id/tvTitle"
         style="@style/BodySubtitle14GreyLeft"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
-        app:layout_constraintStart_toStartOf="@+id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        tools:text="This was an *exceptionally* difficult quarter due to supply chain interruptions China zero Covid policy, Tesla CEO Elon Musk tweeted Saturday." />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivImage"
+        app:layout_constraintTop_toTopOf="@+id/ivImage"
+        tools:text="Tesla delivered a record-breaking number of vehicles in the first quarter of 2022, despite supply chain issues and China's zero-COVID policy" />
+
+    <TextView
+        android:id="@+id/tvAuthor"
+        style="@style/BodySubtitle14GreyLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="4dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@id/ivImage"
+        app:layout_constraintEnd_toStartOf="@+id/tvPublishedDate"
+        app:layout_constraintStart_toStartOf="@id/tvTitle"
+        tools:text="John D.D." />
+
+    <TextView
+        android:id="@+id/tvPublishedDate"
+        style="@style/BodySubtitle14GreyLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@id/ivImage"
+        app:layout_constraintEnd_toEndOf="@id/tvTitle"
+        tools:text="Tue, 23 jun 15 , 09:24" />
 
     <View
         android:id="@+id/divider"
@@ -33,5 +61,6 @@
         android:layout_height="1dp"
         android:layout_marginTop="4dp"
         android:background="@color/grey"
-        app:layout_constraintTop_toBottomOf="@id/tvDescription"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

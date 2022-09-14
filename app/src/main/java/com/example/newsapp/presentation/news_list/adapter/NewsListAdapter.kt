@@ -24,8 +24,10 @@ class NewsListAdapter(
         val news = getItem(position)
         with(holder.binding) {
             with(news) {
-                tvTitle.text = title
-                tvDescription.text = description
+                tvTitle.text = title.ifEmpty { description }
+                tvAuthor.text = author
+                tvPublishedDate.text = publishedAt
+                //TODO ivImage.drawable =
             }
         }
     }
