@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
+import com.example.newsapp.utils.DateFormat
 import com.example.newsapp.data.model.ArticlesDTO
 import com.example.newsapp.databinding.ItemNewsListBinding
 
@@ -26,7 +27,13 @@ class NewsListAdapter(
             with(news) {
                 tvTitle.text = title.ifEmpty { description }
                 tvAuthor.text = author
-                tvPublishedDate.text = publishedAt
+                val formattedDate = DateFormat.DATE.parse(publishedAt)
+                tvPublishedDate.text
+                tvPublishedDate.text = if (formattedDate != null) {
+                    DateFormat.ACT_TIME_SHORT.format(formattedDate)
+                } else {
+                    ""
+                }
                 //TODO ivImage.drawable =
             }
         }
