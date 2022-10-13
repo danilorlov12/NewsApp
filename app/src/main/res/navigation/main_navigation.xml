@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/newsListFragment">
+
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.example.newsapp.presentation.news_list.NewsListFragment"
+        android:label="NewsListFragment" >
+        <action
+            android:id="@+id/action_firstSceneFragment_to_secondSceneFragment"
+            app:destination="@id/newsDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.example.newsapp.presentation.news_details.NewsDetailsFragment"
+        android:label="SecondSceneFragment" >
+        <argument
+            android:name="singleNews"
+            app:argType="com.example.newsapp.presentation.model.ArticleUI"/>
+    </fragment>
+</navigation>

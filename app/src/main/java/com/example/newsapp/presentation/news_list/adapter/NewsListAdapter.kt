@@ -1,15 +1,14 @@
 package com.example.newsapp.presentation.news_list.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.newsapp.utils.DateFormat
 import com.example.newsapp.data.model.ArticlesDTO
 import com.example.newsapp.databinding.ItemNewsListBinding
+import com.example.newsapp.utils.DateFormat
 
 class NewsListAdapter(
-    private val context: Context
+    private val clickListener: ClickListener,
 ) : ListAdapter<ArticlesDTO, NewsListViewHolder>(NewsListDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder {
@@ -34,8 +33,15 @@ class NewsListAdapter(
                 } else {
                     ""
                 }
+                root.setOnClickListener {
+                    clickListener.click(this)
+                }
                 //TODO ivImage.drawable =
             }
         }
     }
+}
+
+interface ClickListener {
+    fun click(article: ArticlesDTO?)
 }
