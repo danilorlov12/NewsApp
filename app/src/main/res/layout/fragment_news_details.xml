@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/ivHeader"
         android:layout_width="match_parent"
-        android:layout_height="196dp"
+        android:layout_height="256dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,13 +16,63 @@
         tools:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/tvDescription"
+        android:id="@+id/tvSourceName"
+        style="@style/BodySubtitle14BlackLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Jon Fingas" />
+
+    <TextView
+        android:id="@+id/tvPublishedDate"
+        style="@style/BodySubtitle14BlackLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="20:05 04.10.2022" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/BodyTitle14BlackLeft"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivHeader"
+        tools:text="Mastercard wants to make crypto purchases less risky" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        style="@style/BodySubtitle16BlackLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
         tools:text="Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key." />
 
+    <TextView
+        android:id="@+id/tvSourceUrl"
+        style="@style/TextStyleUrlBlue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDescription"
+        tools:text="https://www.engadget.com/mastercard-crypto-secure-200559003.html" />
 </androidx.constraintlayout.widget.ConstraintLayout>

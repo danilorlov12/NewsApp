@@ -1,6 +1,7 @@
 package com.example.newsapp.presentation.model
 
 import com.example.newsapp.data.model.ArticlesDTO
+import com.example.newsapp.utils.parseDateToShortFormat
 import java.io.Serializable
 
 data class ArticleUI(
@@ -24,7 +25,7 @@ data class ArticleUI(
                 description = newsDTO?.description ?: "",
                 url = newsDTO?.url ?: "",
                 urlToImage = newsDTO?.urlToImage ?: "",
-                publishedAt = newsDTO?.publishedAt ?: "",
+                publishedAt = newsDTO?.publishedAt?.parseDateToShortFormat() ?: "",
                 content = newsDTO?.content ?: ""
             )
         }

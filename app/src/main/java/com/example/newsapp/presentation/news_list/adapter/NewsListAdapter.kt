@@ -3,13 +3,13 @@ package com.example.newsapp.presentation.news_list.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.newsapp.data.model.ArticlesDTO
+import com.bumptech.glide.Glide
 import com.example.newsapp.databinding.ItemNewsListBinding
-import com.example.newsapp.utils.DateFormat
+import com.example.newsapp.presentation.model.ArticleUI
 
 class NewsListAdapter(
     private val clickListener: ClickListener,
-) : ListAdapter<ArticlesDTO, NewsListViewHolder>(NewsListDiffCallback) {
+) : ListAdapter<ArticleUI, NewsListViewHolder>(NewsListDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder {
         val binding = ItemNewsListBinding.inflate(
@@ -25,23 +25,19 @@ class NewsListAdapter(
         with(holder.binding) {
             with(news) {
                 tvTitle.text = title.ifEmpty { description }
-                tvAuthor.text = author
-                val formattedDate = DateFormat.DATE.parse(publishedAt)
-                tvPublishedDate.text
-                tvPublishedDate.text = if (formattedDate != null) {
-                    DateFormat.ACT_TIME_SHORT.format(formattedDate)
-                } else {
-                    ""
-                }
+                tvSourceName.text = sourceName
+                tvPublishedDate.text = publishedAt
                 root.setOnClickListener {
                     clickListener.click(this)
                 }
-                //TODO ivImage.drawable =
+                Glide.with(holder.itemView.context)
+                    .load(urlToImage)
+                    .into(ivImage)
             }
         }
     }
 }
 
 interface ClickListener {
-    fun click(article: ArticlesDTO?)
+    fun click(article: ArticleUI?)
 }

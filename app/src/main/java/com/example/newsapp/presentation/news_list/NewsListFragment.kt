@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.newsapp.core.BaseFragment
-import com.example.newsapp.data.model.ArticlesDTO
 import com.example.newsapp.databinding.FragmentNewsListBinding
 import com.example.newsapp.presentation.model.ArticleUI
 import com.example.newsapp.presentation.news_list.adapter.ClickListener
@@ -20,13 +19,13 @@ class NewsListFragment : BaseFragment<NewsListViewModel, FragmentNewsListBinding
         super.onViewCreated(view, savedInstanceState)
         val adapter = NewsListAdapter(
             object : ClickListener {
-                override fun click(article: ArticlesDTO?) {
+                override fun click(article: ArticleUI?) {
                     if (article == null) {
                         Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_LONG).show()
                         return
                     }
                     val action = NewsListFragmentDirections
-                        .actionFirstSceneFragmentToSecondSceneFragment(ArticleUI.fromArticleDTO(article))
+                        .actionFirstSceneFragmentToSecondSceneFragment(article)
                     navController.navigate(action)
                 }
             }
